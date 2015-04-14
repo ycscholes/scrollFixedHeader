@@ -1,10 +1,10 @@
-#ScrollFixedHeader - Fixed dom element on the top when scrolling#
+#ScrollFixedHeader#
 
 ##Require##
 * JQuery
 
 ##Feature##
-1. Make one dom element fixed on the top when scrolling.
+1. Fixed dom element on the top when scrolling.
 
 ##API##
 

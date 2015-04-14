@@ -15,14 +15,24 @@
 }
 (this, function($) {
     var ScrollFixedHeader = function(el, options) {
-        var offset = $(el).offset(),
+        var $el = $(el),
+            offset = $el.offset(),
             fixedCss = {
                 position: 'fixed',
                 top: 0,
                 left: offset.left,
                 width: '100%',
                 zIndex: 1000
-            };
+            },
+            tempDom = $('<div>');
+
+        // Insert a equal dom before element to fixed blink issue
+        tempDom.css({
+            height: $el.height(),
+            margin: $el.css('margin')
+        });
+        tempDom.hide();
+        tempDom.insertBefore($el);
 
         if (options && options.css) {
             fixedCss = $.extend({}, fixedCss, options.css);
@@ -30,13 +40,15 @@
 
         $(window).scroll(function() {
             if ($('body').scrollTop() > offset.top){
-                $(el).css(fixedCss);
+                $el.css(fixedCss);
+                tempDom.show();
             } else {
-                $(el).css({
+                $el.css({
                     position: 'static',
                     left: 0,
                     backgroundColor: 'inherit'
                 });
+                tempDom.hide();
             }
         });
     };

@@ -8,7 +8,9 @@
 
 ##Usage##
 new ScrollFixedHeader(el, options);
+
 or
+
 $(el).scrollFixedHeader(options);
 
 ##Demo##

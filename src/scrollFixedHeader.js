@@ -1,3 +1,13 @@
+/*!
+ * scrollFixedHeader v1.0.2
+ * https://github.com/ycscholes/scrollFixedHeader
+ *
+ * Copyright 2015 Chen Yu
+ * Released under the MIT license
+ *
+ * Date: 2015-11-12
+ */
+
 (function(root, factory) {
 
   /* CommonJS */
@@ -87,3 +97,5 @@
 
     return ScrollFixedHeader;
 }));
+
+// TODO: Optimize code

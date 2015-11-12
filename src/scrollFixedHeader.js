@@ -1,30 +1,42 @@
-/**
- * Copyright (c) 2011-2014 Chen Yu
- * Licensed under the MIT license
- */
 (function(root, factory) {
 
   /* CommonJS */
-  if (typeof exports == 'object')  module.exports = factory(require('jquery'))
+  if (typeof exports == 'object')  
+    module.exports = factory(require('jquery'));
 
   /* AMD module */
-  else if (typeof define == 'function' && define.amd) define(['jquery'], factory)
+  else if (typeof define == 'function' && define.amd) 
+    define(['jquery'], factory);
 
   /* Browser global */
-  else root.ScrollFixedHeader = factory(window.jQuery)
+  else 
+    root.ScrollFixedHeader = factory(window.jQuery);
 }
 (this, function($) {
     var ScrollFixedHeader = function(el, options) {
+        options = options || {};
+
         var $el = $(el),
             offset = $el.offset(),
-            fixedCss = {
-                position: 'fixed',
-                top: 0,
-                left: offset.left,
-                width: '100%',
-                zIndex: 1000
-            },
+            scrollWrapper = $(window),
+            wrapper = $('body'),
+            wrapperTop = 0,
+            fixedCss = {},
             tempDom = $('<div>');
+
+        if (options.wrapper) {
+            wrapper = $(options.wrapper);
+            scrollWrapper = wrapper;
+            wrapperTop = wrapper.offset().top;
+        }
+
+        fixedCss = {
+            position: 'fixed',
+            top: wrapperTop,
+            left: offset.left,
+            width: $el.width(),
+            zIndex: 1000
+        };
 
         // Insert a equal dom before element to fixed blink issue
         tempDom.css({
@@ -38,9 +50,10 @@
             fixedCss = $.extend({}, fixedCss, options.css);
         }
 
-        $(window).scroll(function() {
-            if ($('body').scrollTop() > offset.top){
+        scrollWrapper.scroll(function() {
+            if (wrapper.scrollTop() > offset.top - wrapperTop) {
                 $el.css(fixedCss);
+                $el.addClass('sfh-scrolling');
                 tempDom.show();
             } else {
                 $el.css({
@@ -48,6 +61,7 @@
                     left: 0,
                     backgroundColor: 'inherit'
                 });
+                $el.removeClass('sfh-scrolling');
                 tempDom.hide();
             }
         });

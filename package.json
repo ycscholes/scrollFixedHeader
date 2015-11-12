@@ -1,0 +1,29 @@
+{
+  "name": "scrollFixedHeader",
+  "version": "1.0.1",
+  "description": "Fixed dom element on the top when scrolling.",
+  "main": "js/scrollFixedHeader.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node_modules/uglify-js/bin/uglifyjs ./src/scrollFixedHeader.js -o ./src/scrollFixedHeader.min.js -c -m"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ycscholes/scrollFixedHeader.git"
+  },
+  "keywords": [
+    "scroll",
+    "fixed",
+    "header"
+  ],
+  "author": "Chen Yu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ycscholes/scrollFixedHeader/issues"
+  },
+  "homepage": "https://github.com/ycscholes/scrollFixedHeader",
+  "devDependencies": {
+    "jquery": "^2.1.4",
+    "uglify-js": "^2.5.0"
+  }
+}

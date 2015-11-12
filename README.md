@@ -16,6 +16,7 @@ $(el).scrollFixedHeader(options);
 
 ##Options##
 **wrapper:** jQuery element
+
 **css**
 
 ##Demo##

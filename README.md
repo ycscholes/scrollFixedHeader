@@ -15,14 +15,14 @@ or
 $(el).scrollFixedHeader(options);
 
 ##Options##
-### wrapper: jQuery element
-### css
+**wrapper:** jQuery element
+**css**
 
 ##Demo##
 Please see the demo folder in the project
 
 online demo: http://jsfiddle.net/ycscholes/vq2wpre5/1/
 
-##TODO##
+##Todo##
 - Add className into options
 - Optimize code

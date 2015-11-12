@@ -4,6 +4,7 @@ html, body {
 
 .scroll-wrapper {
     height: 300px;
+    width: 50%;
     margin-top: 100px;
     background-color: #ccc;
     overflow: auto;

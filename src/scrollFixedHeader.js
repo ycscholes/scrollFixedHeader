@@ -40,7 +40,7 @@
 
         // Insert a equal dom before element to fixed blink issue
         tempDom.css({
-            height: $el.height(),
+            height: $el.outerHeight(),
             margin: $el.css('margin')
         });
         tempDom.hide();
@@ -52,6 +52,10 @@
 
         scrollWrapper.scroll(function() {
             if (wrapper.scrollTop() > offset.top - wrapperTop) {
+                if (options.wrapper) {
+                    fixedCss.top = wrapperTop - $('body').scrollTop();
+                }
+
                 $el.css(fixedCss);
                 $el.addClass('sfh-scrolling');
                 tempDom.show();
@@ -65,6 +69,14 @@
                 tempDom.hide();
             }
         });
+
+        if (options.wrapper) {
+            $(window).on('scroll', function() {
+                if (wrapper.scrollTop() > offset.top - wrapperTop) {
+                    $el.css('top', wrapperTop - $('body').scrollTop());
+                }
+            });
+        }
     };
 
     $.fn.scrollFixedHeader = function(options) {

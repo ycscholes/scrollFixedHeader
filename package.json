@@ -1,6 +1,6 @@
 {
-  "name": "scrollFixedHeader",
-  "version": "1.0.1",
+  "name": "scroll-fixed-header",
+  "version": "1.0.0",
   "description": "Fixed dom element on the top when scrolling.",
   "main": "js/scrollFixedHeader.js",
   "scripts": {

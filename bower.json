@@ -1,0 +1,23 @@
+{
+  "name": "scroll-fixed-header",
+  "description": "Fixed dom element on the top when scrolling.",
+  "main": "js/scrollFixedHeader.js",
+  "authors": [
+    "Chen Yu"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "scroll",
+    "fixed",
+    "header"
+  ],
+  "homepage": "https://github.com/ycscholes/scrollFixedHeader",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

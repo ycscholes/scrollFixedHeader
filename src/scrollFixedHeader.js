@@ -44,7 +44,7 @@
             position: 'fixed',
             top: wrapperTop,
             left: offset.left,
-            width: $el.width(),
+            width: $el.outerWidth(),
             zIndex: 1000
         };
 
